@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cape Long/Short Equity Fund — January 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;width:100%;overflow:hidden;background:#1a1a1a;font-family:'Inter',Arial,sans-serif}
+#viewer{width:100vw;height:100vh;border:none;display:block}
+.controls{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;z-index:100;background:rgba(0,0,0,0.5);backdrop-filter:blur(10px);padding:8px 20px;border-radius:28px}
+.controls button{background:none;border:none;color:rgba(255,255,255,0.65);cursor:pointer;font-size:18px;padding:4px 10px;border-radius:4px;transition:color 0.2s}
+.controls button:hover{color:white}
+.controls span{color:rgba(255,255,255,0.45);font-size:12px;min-width:55px;text-align:center}
+.progress{position:fixed;top:0;left:0;height:3px;background:#831011;z-index:100;transition:width 0.35s ease}
+.nav-zone-left,.nav-zone-right{position:fixed;top:0;height:calc(100% - 60px);z-index:50;cursor:pointer}
+.nav-zone-left{left:0;width:25%}
+.nav-zone-right{right:0;width:75%}
+.page-num{position:fixed;bottom:18px;right:24px;font-size:11px;z-index:100;transition:color 0.3s}
+</style>
+</head>
+<body>
+<iframe id="viewer"></iframe>
+<div class="progress" id="progress"></div>
+<div class="nav-zone-left" id="navLeft"></div>
+<div class="nav-zone-right" id="navRight"></div>
+<div class="controls">
+    <button onclick="go(-1)">&#9664;</button>
+    <span id="counter">1 / 6</span>
+    <button onclick="go(1)">&#9654;</button>
+</div>
+<div class="page-num" id="pageNum">1 / 6</div>
+<script>
+const slides = {};
+const darkSlides = new Set([0, 2, 4]);
+slides[0] = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--capital-red:#831011;--deep-red:#4A090A;--white:#FFFFFF;--beige:#F5F2E6;--beige-400:#E4DFC8;--purple:#403050;--deep-purple:#2D1F3B;--purple-200:#B1A2C1;--grey-800:#4C4F56;--font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Inter',Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:clamp(16px,1.4vw,28px)}
+html,body{background:var(--purple);height:100vh;width:100vw;overflow:hidden}
+.slide{width:100vw;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.content{width:96vw;max-width:1600px;padding:clamp(1rem,2.5vh,2rem) clamp(1.5rem,3vw,3rem)}
+.reveal{opacity:0;transform:translateY(14px);animation:fadeUp 0.6s ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.triangle{position:absolute;top:0;right:0;width:45%;height:100%;overflow:hidden}
+.triangle::before{content:'';position:absolute;top:0;right:0;width:100%;height:100%;background:var(--deep-purple);clip-path:polygon(100% 0,100% 100%,0 100%)}
+.pattern{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.03;background-image:repeating-linear-gradient(45deg,transparent,transparent 30px,var(--beige) 30px,var(--beige) 31px)}
+</style>
+</head>
+<body>
+<div class="slide">
+    <div class="pattern"></div>
+    <div class="triangle"></div>
+    <div class="content" style="position:relative;z-index:2">
+        <div style="width:3.2rem;height:2px;background:var(--capital-red);margin-bottom:1.5rem" class="reveal"></div>
+        <h1 class="reveal" style="animation-delay:0.15s;font-family:var(--font-display);font-weight:300;font-size:clamp(2.8rem,5.5vw,5.5rem);color:var(--beige);letter-spacing:-0.02em;line-height:1.05">Cape Long/Short<br>Equity Fund</h1>
+        <p class="reveal" style="animation-delay:0.3s;font-family:var(--font-body);font-weight:500;font-size:0.7rem;color:var(--purple-200);letter-spacing:0.25em;text-transform:uppercase;margin-top:1.8rem">JANUARY 2026</p>
+    </div>
+</div>
+</body>
+</html>
+`;
+slides[1] = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--capital-red:#831011;--deep-red:#4A090A;--white:#FFFFFF;--beige:#F5F2E6;--beige-400:#E4DFC8;--beige-50:#FFFDF6;--purple:#403050;--grey-800:#4C4F56;--grey-400:#ADB2BA;--font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Inter',Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:clamp(16px,1.4vw,28px)}
+html,body{background:var(--beige);height:100vh;width:100vw;overflow:hidden}
+.slide{width:100vw;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.content{width:96vw;max-width:1600px;padding:clamp(1rem,2.5vh,2rem) clamp(1.5rem,3vw,3rem)}
+.reveal{opacity:0;transform:translateY(14px);animation:fadeUp 0.5s ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.main-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(2rem,4vw,5rem);align-items:center}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(0.6rem,1vw,1rem)}
+.card{background:var(--white);border-radius:0.5rem;padding:clamp(0.9rem,1.6vw,1.5rem);border-left:3px solid var(--capital-red);display:flex;flex-direction:column;gap:0.4rem}
+.card-title{font-family:var(--font-body);font-weight:600;font-size:0.78rem;color:var(--grey-800);line-height:1.3}
+.card-desc{font-family:var(--font-body);font-weight:400;font-size:0.68rem;color:var(--grey-800);line-height:1.55;opacity:0.65}
+</style>
+</head>
+<body>
+<div class="slide">
+    <div class="content">
+        <div class="main-grid">
+            <div>
+                <div style="width:2.5rem;height:2px;background:var(--capital-red);margin-bottom:1rem" class="reveal"></div>
+                <h2 class="reveal" style="animation-delay:0.1s;font-family:var(--font-display);font-weight:300;font-size:clamp(1.6rem,3vw,2.6rem);color:var(--grey-800);letter-spacing:-0.02em;line-height:1.12;margin-bottom:1.2rem">Cape Long/Short<br>Equity Fund</h2>
+                <p class="reveal" style="animation-delay:0.2s;font-family:var(--font-body);font-weight:400;font-size:0.8rem;color:var(--grey-800);line-height:1.6;opacity:0.85">We see hedge funds as a core allocation as part of our equity bucket.</p>
+                <p class="reveal" style="animation-delay:0.25s;font-family:var(--font-body);font-weight:400;font-size:0.8rem;color:var(--grey-800);line-height:1.6;opacity:0.85;margin-top:0.8rem">The attractive risk adjusted returns of these strategies enables us to deliver uncorrelated and consistent returns, by achieving a reasonable upside capture while meaningfully protecting investors during time of market stress.</p>
+            </div>
+            <div class="card-grid">
+                <div class="card reveal" style="animation-delay:0.3s">
+                    <div class="card-title">Differentiated source of value-added</div>
+                    <div class="card-desc">Differentiated risk source via exclusive manager access and portfolio construction to offer a well-balanced portfolio</div>
+                </div>
+                <div class="card reveal" style="animation-delay:0.35s">
+                    <div class="card-title">Downside protection</div>
+                    <div class="card-desc">Proven downside resilience through stable volatility, fewer tail events while not giving up risk adjusted return</div>
+                </div>
+                <div class="card reveal" style="animation-delay:0.4s">
+                    <div class="card-title">Quality managers</div>
+                    <div class="card-desc">Providing access to 8-12 reputable investment managers via our extensive network and deep roots in the industry</div>
+                </div>
+                <div class="card reveal" style="animation-delay:0.45s">
+                    <div class="card-title">Long-term capital appreciation</div>
+                    <div class="card-desc">Stable performance, limited drawdown and low correlation is essential for long term capital appreciation</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+`;
+slides[2] = `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{--capital-red:#831011;--deep-red:#4A090A;--red-500:#AD2A2B;--red-300:#C85657;--red-200:#F7C9C9;--red-100:#FAF0F0;--white:#FFFFFF;--black:#000000;--beige:#F5F2E6;--beige-400:#E4DFC8;--beige-300:#EFECDD;--beige-100:#FCFAF0;--beige-50:#FFFDF6;--purple:#403050;--deep-purple:#2D1F3B;--purple-300:#746188;--purple-200:#B1A2C1;--purple-100:#F7F2FD;--green:#044049;--deep-green:#033138;--green-300:#458C88;--green-200:#BAE0D6;--green-100:#F0F8F6;--sky-blue:#9FDAFF;--moss:#828010;--orange:#C66A37;--deep-blue:#105782;--peach:#F7C9C9;--matcha:#ACC79B;--grey-800:#4C4F56;--grey-400:#ADB2BA;--grey-300:#C8CBD1;--grey-200:#DCDFE5;--grey-100:#EEF0F4;--grey-50:#FAFBFE;--font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Inter',Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:clamp(14px,1.2vw,26px)}
+html,body{height:100vh;width:100vw;overflow:hidden}
+.slide{width:100vw;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.content{width:96vw;max-width:1600px;padding:clamp(1rem,2vh,2rem) clamp(1.5rem,3vw,3rem)}
+.reveal{opacity:0;transform:translateY(14px);animation:fadeUp 0.5s ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+svg text{font-family:'Inter',Arial,sans-serif}
+html,body{background:var(--green)}
+.strat-row{display:grid;grid-template-columns:140px 100px 1fr;gap:0 clamp(1rem,2vw,2rem);align-items:start;padding:clamp(0.7rem,1.2vh,1rem) 0;border-bottom:1px solid rgba(186,224,214,0.12)}
+.strat-row:last-child{border-bottom:none}
+.badge{font-family:var(--font-body);font-weight:500;font-size:0.62rem;border-radius:20px;padding:0.25rem 0.7rem;white-space:nowrap}
+.pct{font-family:var(--font-display);font-weight:300;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--green-200);letter-spacing:-0.02em}
+.strat-label{font-family:var(--font-body);font-weight:600;font-size:0.65rem;color:var(--beige);margin-top:0.15rem}
+.strat-desc{font-family:var(--font-body);font-weight:400;font-size:0.62rem;color:var(--green-200);line-height:1.6;opacity:0.8}
+</style></head>
+<body><div class="slide">
+<div class="content">
+  <div style="width:40px;height:2px;background:var(--green-200);margin-bottom:0.6rem" class="reveal"></div>
+  <p class="reveal" style="animation-delay:0.05s;font-family:var(--font-body);font-weight:500;font-size:0.7rem;color:var(--green-200);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:0.4rem">Cape Long/Short Equity Fund</p>
+  <h2 class="reveal" style="animation-delay:0.1s;font-family:var(--font-display);font-weight:300;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--beige);letter-spacing:-0.02em;line-height:1.15;margin-bottom:0.5rem">Strategy Focus &amp; Allocation</h2>
+  <p class="reveal" style="animation-delay:0.15s;font-family:var(--font-body);font-weight:400;font-size:0.75rem;color:var(--green-200);line-height:1.6;margin-bottom:clamp(1rem,2vh,1.5rem)">We focus on long/short equity and equity related strategies, complemented by targeted diversifiers.<br>This permits us to enhance the risk/return profile of a portfolio compared to a classic long only allocation.</p>
+
+  <div class="strat-row reveal" style="animation-delay:0.25s">
+    <div><span class="badge" style="background:rgba(186,224,214,0.2);color:var(--green-200)">Our core focus</span></div>
+    <div><div class="pct">60-80%</div><div class="strat-label">L/S Equity</div></div>
+    <div class="strat-desc">Best risk/adjusted returns across hedge fund strategies over time<br>Drawdown mitigation versus equity indices while capturing meaningful returns on the upside when done right</div>
+  </div>
+
+  <div class="strat-row reveal" style="animation-delay:0.35s">
+    <div><span class="badge" style="background:rgba(186,224,214,0.12);color:var(--green-200)">Diversifiers</span></div>
+    <div><div class="pct">20-40%</div><div class="strat-label">Relative Value<br>Event - Driven</div></div>
+    <div class="strat-desc">We favour equity linked strategies (convertibles bonds, equity relative value etc..) but avoid high correlation to equities&nbsp;<br>Enables the fund to capture uncorrelated returns and provide diversification to L/S managers while still focusing on equities</div>
+  </div>
+
+  <div class="strat-row reveal" style="animation-delay:0.45s">
+    <div><span class="badge" style="background:rgba(255,255,255,0.06);color:rgba(186,224,214,0.5)">Not our focus</span></div>
+    <div><div class="pct" style="opacity:0.4">0%</div><div class="strat-label" style="opacity:0.5">Macro &amp; CTA<br>Fixed Income<br>Volatility</div></div>
+    <div class="strat-desc" style="opacity:0.6">Macro &amp; CTA strategies can be very volatile and go sideways (2020, March 2022)<br>We stay away from fixed income as fund is used as a complement an equity long only exposure&nbsp;<br>We prefer to avoid indirect exposure via futures, options etc.</div>
+  </div>
+</div></div></body></html>`;
+slides[3] = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--capital-red:#831011;--white:#FFFFFF;--beige:#F5F2E6;--beige-400:#E4DFC8;--purple:#403050;--green:#044049;--green-300:#458C88;--green-200:#BAE0D6;--grey-800:#4C4F56;--grey-400:#ADB2BA;--grey-200:#DCDFE5;--grey-100:#EEF0F4;--font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Inter',Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:clamp(16px,1.4vw,28px)}
+html,body{background:var(--beige);height:100vh;width:100vw;overflow:hidden}
+.slide{width:100vw;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.content{width:96vw;max-width:1600px;padding:clamp(1rem,2.5vh,2rem) clamp(1.5rem,3vw,3rem)}
+.reveal{opacity:0;transform:translateY(14px);animation:fadeUp 0.5s ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+/* Two equal columns */
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,3rem);margin-top:clamp(1rem,2vh,1.5rem)}
+
+/* Column box */
+.col-box{background:var(--white);border-radius:0.5rem;padding:clamp(1rem,2vw,1.8rem);height:100%}
+
+/* Header inside box */
+.col-header{display:flex;align-items:center;gap:0.5rem;margin-bottom:clamp(0.6rem,1.2vh,1rem);padding-bottom:clamp(0.5rem,1vh,0.8rem);border-bottom:1px solid var(--grey-200)}
+.col-header-icon{width:1.6rem;height:1.6rem;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:0.7rem;flex-shrink:0}
+.col-header-text{font-family:var(--font-body);font-weight:600;font-size:0.8rem}
+
+/* List items */
+.item{font-family:var(--font-body);font-weight:400;font-size:0.72rem;color:var(--grey-800);line-height:1.6;padding:clamp(0.35rem,0.7vh,0.5rem) 0;padding-left:0.8rem;position:relative}
+.item::before{content:'';position:absolute;left:0;top:clamp(0.6rem,1vh,0.8rem);width:4px;height:4px;border-radius:50%}
+.yes-item::before{background:var(--green-300)}
+.no-item::before{background:var(--capital-red)}
+
+/* Tags section inside yes column */
+.tags-section{margin-top:clamp(0.6rem,1.2vh,1rem);padding-top:clamp(0.6rem,1.2vh,1rem);border-top:1px solid var(--grey-200)}
+.tags-label{font-family:var(--font-body);font-weight:500;font-size:0.6rem;color:var(--grey-400);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem}
+.tags{display:flex;flex-wrap:wrap;gap:0.35rem}
+.tag{font-family:var(--font-body);font-size:0.58rem;font-weight:500;color:var(--purple);background:rgba(64,48,80,0.05);border:1px solid rgba(64,48,80,0.12);border-radius:2rem;padding:0.25rem 0.65rem;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="slide">
+    <div class="content">
+        <!-- Header -->
+        <div style="width:2.5rem;height:2px;background:var(--capital-red);margin-bottom:0.6rem" class="reveal"></div>
+        <p class="reveal" style="animation-delay:0.05s;font-family:var(--font-body);font-weight:500;font-size:0.65rem;color:var(--grey-800);letter-spacing:0.25em;text-transform:uppercase;opacity:0.5;margin-bottom:0.3rem">Cape Long/Short Equity Fund</p>
+        <h2 class="reveal" style="animation-delay:0.1s;font-family:var(--font-display);font-weight:300;font-size:clamp(1.6rem,3vw,2.6rem);color:var(--grey-800);letter-spacing:-0.02em;line-height:1.12">Finding Differentiated Sources of Alpha</h2>
+        <p class="reveal" style="animation-delay:0.15s;font-family:var(--font-body);font-weight:400;font-size:0.75rem;color:var(--grey-800);line-height:1.6;opacity:0.7;margin-top:0.5rem;max-width:50rem">We work with insightful and skilled managers who can generate consistent alpha over the long term and stay away from crowded strategies&#8230; while looking for differentiated alpha sources at various levels &#8211; strategy focus, investment style, strategy implementation, philosophy etc.</p>
+
+        <!-- Two columns -->
+        <div class="columns">
+            <!-- YES TO -->
+            <div class="col-box reveal" style="animation-delay:0.25s;border-top:3px solid var(--green)">
+                <div class="col-header">
+                    <div class="col-header-icon" style="background:var(--green)">&#10003;</div>
+                    <div class="col-header-text" style="color:var(--green)">Yes to:</div>
+                </div>
+                <div class="item yes-item">Alpha generation from long and short book</div>
+                <div class="item yes-item">Focused on security selection</div>
+                <div class="item yes-item">Focused on under researched stocks</div>
+                <div class="item yes-item">Exploit uncovered market inefficiencies</div>
+                <div class="tags-section">
+                    <div class="tags-label">Strategy focus areas</div>
+                    <div class="tags">
+                        <span class="tag">L/S Equity</span>
+                        <span class="tag">SMID cap names</span>
+                        <span class="tag">Secular</span>
+                        <span class="tag">Bottom-up</span>
+                        <span class="tag">Contrarian</span>
+                        <span class="tag">Arbitrage / Relative Value</span>
+                        <span class="tag">Event Driven / Restructure</span>
+                        <span class="tag">Fundamental vs. technical</span>
+                        <span class="tag">High vs. low turnover</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NO TO -->
+            <div class="col-box reveal" style="animation-delay:0.35s;border-top:3px solid var(--capital-red)">
+                <div class="col-header">
+                    <div class="col-header-icon" style="background:var(--capital-red)">&#10005;</div>
+                    <div class="col-header-text" style="color:var(--capital-red)">No to:</div>
+                </div>
+                <div class="item no-item">Excessive use of ETFs to manage exposure</div>
+                <div class="item no-item">Excessive use of options and indices to hedge</div>
+                <div class="item no-item">Focused on large caps and crowded stocks</div>
+                <div class="item no-item">Easily replicable strategies</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+`;
+slides[4] = `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{--capital-red:#831011;--deep-red:#4A090A;--red-500:#AD2A2B;--red-300:#C85657;--red-200:#F7C9C9;--red-100:#FAF0F0;--white:#FFFFFF;--black:#000000;--beige:#F5F2E6;--beige-400:#E4DFC8;--beige-300:#EFECDD;--beige-100:#FCFAF0;--beige-50:#FFFDF6;--purple:#403050;--deep-purple:#2D1F3B;--purple-300:#746188;--purple-200:#B1A2C1;--purple-100:#F7F2FD;--green:#044049;--deep-green:#033138;--green-300:#458C88;--green-200:#BAE0D6;--green-100:#F0F8F6;--sky-blue:#9FDAFF;--moss:#828010;--orange:#C66A37;--deep-blue:#105782;--peach:#F7C9C9;--matcha:#ACC79B;--grey-800:#4C4F56;--grey-400:#ADB2BA;--grey-300:#C8CBD1;--grey-200:#DCDFE5;--grey-100:#EEF0F4;--grey-50:#FAFBFE;--font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Inter',Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:clamp(14px,1.2vw,26px)}
+html,body{height:100vh;width:100vw;overflow:hidden}
+.slide{width:100vw;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.content{width:96vw;max-width:1600px;padding:clamp(1rem,2vh,2rem) clamp(1.5rem,3vw,3rem)}
+.reveal{opacity:0;transform:translateY(14px);animation:fadeUp 0.5s ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+svg text{font-family:'Inter',Arial,sans-serif}
+html,body{background:var(--capital-red)}
+
+</style></head>
+<body><div class="slide">
+<div style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.04;background-image:repeating-linear-gradient(45deg,transparent,transparent 40px,var(--beige) 40px,var(--beige) 41px)"></div>
+<div style="text-align:center;position:relative;z-index:2">
+  <div style="width:60px;height:2px;background:var(--beige);opacity:0.4;margin:0 auto 1.5rem" class="reveal"></div>
+  <h1 class="reveal" style="animation-delay:0.15s;font-family:var(--font-display);font-weight:300;font-size:clamp(3rem,6vw,5rem);color:var(--beige);letter-spacing:-0.02em">Appendix</h1>
+</div></div></body></html>`;
+slides[5] = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--capital-red:#831011;--white:#FFFFFF;--beige:#F5F2E6;--beige-400:#E4DFC8;--beige-50:#FFFDF6;--purple:#403050;--grey-800:#4C4F56;--grey-400:#ADB2BA;--grey-200:#DCDFE5;--grey-100:#EEF0F4;--font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Inter',Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:clamp(16px,1.4vw,28px)}
+html,body{background:var(--beige-50);height:100vh;width:100vw;overflow:hidden}
+.slide{width:100vw;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.content{width:96vw;max-width:1600px;padding:clamp(1rem,2.5vh,2rem) clamp(1.5rem,3vw,3rem)}
+.reveal{opacity:0;transform:translateY(14px);animation:fadeUp 0.5s ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.main-grid{display:grid;grid-template-columns:1.8fr 1fr;gap:clamp(1.2rem,2.5vw,2.5rem);align-items:stretch;margin-top:clamp(0.5rem,1vh,0.8rem)}
+.chart-card{background:var(--white);border:1px solid var(--beige-400);border-radius:0.5rem;padding:clamp(0.6rem,1vw,0.8rem);display:flex;flex-direction:column}
+.chart-label{font-family:var(--font-body);font-weight:500;font-size:0.62rem;color:var(--grey-400);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem;flex-shrink:0}
+.chart-wrap{flex:1;min-height:0;display:flex;align-items:stretch}
+.chart-wrap svg{width:100%;height:100%}
+.stats-panel{display:flex;flex-direction:column;gap:clamp(0.6rem,1.2vh,1rem)}
+.stats-card{background:var(--white);border:1px solid var(--beige-400);border-radius:0.5rem;padding:clamp(0.6rem,1.2vw,1rem);overflow:hidden;flex:1}
+.stats-card-header{font-family:var(--font-body);font-weight:600;font-size:0.6rem;color:var(--white);letter-spacing:0.1em;text-transform:uppercase;padding:0.4rem 0.6rem;margin:clamp(-0.6rem,-1.2vw,-1rem) clamp(-0.6rem,-1.2vw,-1rem) 0.5rem;border-radius:0.5rem 0.5rem 0 0}
+table.stats{width:100%;border-collapse:collapse;font-family:var(--font-body)}
+table.stats td{padding:0.28rem 0.4rem;font-size:0.62rem;border-bottom:1px solid var(--grey-100)}
+table.stats tr:last-child td{border-bottom:none}
+table.stats td:first-child{color:var(--grey-800);opacity:0.75;text-align:left}
+table.stats td:nth-child(2),table.stats td:nth-child(3){text-align:right;font-weight:600;color:var(--grey-800);font-variant-numeric:tabular-nums;min-width:3.5rem}
+table.stats thead td{font-weight:600;font-size:0.55rem;color:var(--grey-400);text-transform:uppercase;letter-spacing:0.06em;padding-bottom:0.35rem;border-bottom:1px solid var(--grey-200);opacity:1}
+.overview{font-family:var(--font-body);font-size:0.6rem;color:var(--grey-800);line-height:1.6;opacity:0.55;margin-top:0.4rem}
+.date-badge{position:absolute;top:0.6rem;right:1.5rem;font-family:var(--font-body);font-size:0.5rem;color:var(--grey-400)}
+</style>
+</head>
+<body>
+<div class="slide">
+    <div class="date-badge">Data as of: 31 January 2026</div>
+    <div class="content">
+        <div style="width:2.5rem;height:2px;background:var(--capital-red);margin-bottom:0.5rem" class="reveal"></div>
+        <p class="reveal" style="animation-delay:0.05s;font-family:var(--font-body);font-weight:500;font-size:0.65rem;color:var(--grey-800);letter-spacing:0.25em;text-transform:uppercase;opacity:0.5;margin-bottom:0.25rem">Cape Long/Short Equity Fund</p>
+        <h2 class="reveal" style="animation-delay:0.1s;font-family:var(--font-display);font-weight:300;font-size:clamp(1.4rem,2.5vw,2.2rem);color:var(--grey-800);letter-spacing:-0.02em;line-height:1.15">Differentiated Alpha &#8211; With Resilience During Market Periods</h2>
+        <p class="overview reveal" style="animation-delay:0.15s">Access to 8-12 reputable investment managers &#183; Extensive network and deep roots in the industry &#183; Differentiated alpha sourcing &#183; Downside protection through strategy diversification &#183; Long-term capital appreciation &#183; Stable performance &#183; Limited drawdowns and low correlation &#183; Regulated Luxembourg Fund (SIF) &#183; Monthly liquidity</p>
+        <div class="main-grid">
+            <div class="chart-card reveal" style="animation-delay:0.2s">
+                <div class="chart-label">Performance (Rebased to 100)</div>
+                <div class="chart-wrap"><svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" width="100%" preserveAspectRatio="xMidYMid meet">
+<style>text{font-family:"Inter",Arial,sans-serif}</style>
+<defs><linearGradient id="mF" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#831011" stop-opacity="0.14"/><stop offset="100%" stop-color="#831011" stop-opacity="0.01"/></linearGradient></defs>
+<line x1="50" y1="405.0" x2="780" y2="405.0" stroke="#DCDFE5" stroke-width="0.6"/>
+<text x="42" y="409.0" text-anchor="end" font-size="10" fill="#ADB2BA">100</text>
+<line x1="50" y1="328.0" x2="780" y2="328.0" stroke="#DCDFE5" stroke-width="0.6" stroke-dasharray="4,3"/>
+<text x="42" y="332.0" text-anchor="end" font-size="10" fill="#ADB2BA">120</text>
+<line x1="50" y1="251.0" x2="780" y2="251.0" stroke="#DCDFE5" stroke-width="0.6" stroke-dasharray="4,3"/>
+<text x="42" y="255.0" text-anchor="end" font-size="10" fill="#ADB2BA">140</text>
+<line x1="50" y1="174.0" x2="780" y2="174.0" stroke="#DCDFE5" stroke-width="0.6" stroke-dasharray="4,3"/>
+<text x="42" y="178.0" text-anchor="end" font-size="10" fill="#ADB2BA">160</text>
+<line x1="50" y1="97.0" x2="780" y2="97.0" stroke="#DCDFE5" stroke-width="0.6" stroke-dasharray="4,3"/>
+<text x="42" y="101.0" text-anchor="end" font-size="10" fill="#ADB2BA">180</text>
+<line x1="50" y1="20.0" x2="780" y2="20.0" stroke="#DCDFE5" stroke-width="0.6" stroke-dasharray="4,3"/>
+<text x="42" y="24.0" text-anchor="end" font-size="10" fill="#ADB2BA">200</text>
+<text x="54.6" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2013</text>
+<line x1="54.6" y1="20" x2="54.6" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<text x="110.4" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2014</text>
+<line x1="110.4" y1="20" x2="110.4" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<text x="166.2" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2015</text>
+<line x1="166.2" y1="20" x2="166.2" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<text x="222.0" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2016</text>
+<line x1="222.0" y1="20" x2="222.0" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<text x="277.8" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2017</text>
+<line x1="277.8" y1="20" x2="277.8" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<text x="333.6" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2018</text>
+<line x1="333.6" y1="20" x2="333.6" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<text x="389.4" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2019</text>
+<line x1="389.4" y1="20" x2="389.4" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<text x="445.2" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2020</text>
+<line x1="445.2" y1="20" x2="445.2" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<text x="501.0" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2021</text>
+<line x1="501.0" y1="20" x2="501.0" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<text x="556.8" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2022</text>
+<line x1="556.8" y1="20" x2="556.8" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<text x="612.6" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2023</text>
+<line x1="612.6" y1="20" x2="612.6" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<text x="668.4" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2024</text>
+<line x1="668.4" y1="20" x2="668.4" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<text x="724.2" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2025</text>
+<line x1="724.2" y1="20" x2="724.2" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<text x="780.0" y="425" text-anchor="middle" font-size="10" fill="#ADB2BA">2026</text>
+<line x1="780.0" y1="20" x2="780.0" y2="405" stroke="#EEF0F4" stroke-width="0.5"/>
+<polyline points="50.0,405.0 54.6,397.2 59.3,391.3 63.9,385.6 68.6,382.0 73.2,380.4 77.9,378.2 82.5,374.1 87.2,377.5 91.8,371.6 96.5,367.0 101.1,364.3 105.8,358.8 110.4,360.0 115.1,353.8 119.7,357.9 124.4,364.5 129.0,362.6 133.7,361.5 138.3,365.4 143.0,363.1 147.6,360.6 152.3,361.9 156.9,361.0 161.6,358.9 166.2,357.4 170.9,350.9 175.5,343.3 180.2,336.8 184.8,328.4 189.5,332.3 194.1,329.9 198.8,336.8" fill="none" stroke="#ADB2BA" stroke-width="2" stroke-dasharray="6,4" stroke-linecap="round"/>
+<polygon points="198.8,336.8 203.4,340.1 208.1,340.0 212.7,336.0 217.4,333.3 222.0,342.5 226.7,348.7 231.3,350.2 236.0,351.2 240.6,348.6 245.3,350.4 249.9,346.8 254.6,345.0 259.2,339.4 263.9,338.0 268.5,340.4 273.2,337.8 277.8,333.1 282.5,330.5 287.1,324.4 291.8,316.5 296.4,312.8 301.1,314.6 305.7,308.3 310.4,304.4 315.0,300.2 319.7,288.3 324.3,294.6 329.0,295.4 333.6,287.8 338.3,289.3 342.9,290.9 347.6,293.3 352.2,288.7 356.9,290.9 361.5,289.5 366.2,291.8 370.8,293.7 375.5,306.7 380.1,311.0 384.8,307.9 389.4,306.3 394.1,300.2 398.7,296.9 403.4,295.2 408.0,295.8 412.7,290.2 417.3,290.6 422.0,290.3 426.6,291.7 431.3,288.9 435.9,280.1 440.6,268.1 445.2,269.1 449.9,281.4 454.5,305.6 459.2,291.8 463.8,283.6 468.5,276.4 473.1,272.0 477.8,265.4 482.4,265.2 487.1,265.5 491.7,251.9 496.4,233.7 501.0,235.6 505.7,224.9 510.3,221.0 515.0,211.3 519.6,206.3 524.3,207.5 528.9,204.1 533.6,198.3 538.2,196.7 542.9,187.2 547.5,190.3 552.2,186.5 556.8,191.0 561.5,191.1 566.1,190.9 570.8,194.2 575.4,194.5 580.1,200.3 584.7,198.4 589.4,194.9 594.0,198.6 598.7,194.7 603.3,192.6 608.0,189.7 612.6,181.6 617.3,185.1 621.9,177.6 626.6,179.7 631.2,180.3 635.9,181.3 640.5,184.0 645.2,177.4 649.8,174.6 654.5,171.0 659.1,155.4 663.8,157.0 668.4,149.3 673.1,134.7 677.7,122.0 682.4,113.7 687.0,103.1 691.7,95.8 696.3,93.2 701.0,90.9 705.6,81.4 710.3,79.8 714.9,69.5 719.6,76.2 724.2,69.5 728.9,67.5 733.5,75.1 738.2,73.4 742.8,71.4 747.5,63.4 752.1,63.6 756.8,57.5 761.4,50.1 766.1,49.3 770.7,55.2 775.4,51.9 780.0,32.8 780.0,405.0 198.8,405.0" fill="url(#mF)"/>
+<polyline points="198.8,336.8 203.4,340.1 208.1,340.0 212.7,336.0 217.4,333.3 222.0,342.5 226.7,348.7 231.3,350.2 236.0,351.2 240.6,348.6 245.3,350.4 249.9,346.8 254.6,345.0 259.2,339.4 263.9,338.0 268.5,340.4 273.2,337.8 277.8,333.1 282.5,330.5 287.1,324.4 291.8,316.5 296.4,312.8 301.1,314.6 305.7,308.3 310.4,304.4 315.0,300.2 319.7,288.3 324.3,294.6 329.0,295.4 333.6,287.8 338.3,289.3 342.9,290.9 347.6,293.3 352.2,288.7 356.9,290.9 361.5,289.5 366.2,291.8 370.8,293.7 375.5,306.7 380.1,311.0 384.8,307.9 389.4,306.3 394.1,300.2 398.7,296.9 403.4,295.2 408.0,295.8 412.7,290.2 417.3,290.6 422.0,290.3 426.6,291.7 431.3,288.9 435.9,280.1 440.6,268.1 445.2,269.1 449.9,281.4 454.5,305.6 459.2,291.8 463.8,283.6 468.5,276.4 473.1,272.0 477.8,265.4 482.4,265.2 487.1,265.5 491.7,251.9 496.4,233.7 501.0,235.6 505.7,224.9 510.3,221.0 515.0,211.3 519.6,206.3 524.3,207.5 528.9,204.1 533.6,198.3 538.2,196.7 542.9,187.2 547.5,190.3 552.2,186.5 556.8,191.0 561.5,191.1 566.1,190.9 570.8,194.2 575.4,194.5 580.1,200.3 584.7,198.4 589.4,194.9 594.0,198.6 598.7,194.7 603.3,192.6 608.0,189.7 612.6,181.6 617.3,185.1 621.9,177.6 626.6,179.7 631.2,180.3 635.9,181.3 640.5,184.0 645.2,177.4 649.8,174.6 654.5,171.0 659.1,155.4 663.8,157.0 668.4,149.3 673.1,134.7 677.7,122.0 682.4,113.7 687.0,103.1 691.7,95.8 696.3,93.2 701.0,90.9 705.6,81.4 710.3,79.8 714.9,69.5 719.6,76.2 724.2,69.5 728.9,67.5 733.5,75.1 738.2,73.4 742.8,71.4 747.5,63.4 752.1,63.6 756.8,57.5 761.4,50.1 766.1,49.3 770.7,55.2 775.4,51.9 780.0,32.8" fill="none" stroke="#831011" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" style="stroke-dasharray:915;stroke-dashoffset:915;animation:dl 2s ease forwards 0.3s"/>
+<circle cx="780.0" cy="32.8" r="4" fill="#831011" style="opacity:0;animation:fi 0.3s ease forwards 2.3s"/>
+<text x="772.0" y="22.8" text-anchor="end" font-size="12" fill="#831011" font-weight="600" style="opacity:0;animation:fi 0.3s ease forwards 2.3s">196.7</text>
+<circle cx="198.8" cy="336.8" r="3" fill="#ADB2BA"/>
+<line x1="50" y1="442" x2="68" y2="442" stroke="#ADB2BA" stroke-width="2" stroke-dasharray="5,3"/>
+<text x="72" y="445" font-size="10" fill="#ADB2BA">Composite (pre-fund)</text>
+<line x1="245" y1="442" x2="263" y2="442" stroke="#831011" stroke-width="2"/>
+<text x="267" y="445" font-size="10" fill="#831011">Cape L/S Equity Fund</text>
+<style>@keyframes dl{to{stroke-dashoffset:0}}@keyframes fi{to{opacity:1}}</style>
+</svg></div>
+            </div>
+            <div class="stats-panel">
+                <div class="stats-card reveal" style="animation-delay:0.25s">
+                    <div class="stats-card-header" style="background:var(--purple)">Portfolio Characteristics</div>
+                    <table class="stats"><tbody>
+                        <tr><td>Annualized Return</td><td>5.3%</td></tr>
+                        <tr><td>Annualized Volatility</td><td>3.8%</td></tr>
+                        <tr><td>Max. Drawdown</td><td>-7.2%</td></tr>
+                        <tr><td>Upside Capture</td><td>73.1%</td></tr>
+                        <tr><td>Downside Capture</td><td>55.7%</td></tr>
+                        <tr><td>Upside/Downside Capture</td><td>131.2%</td></tr>
+                    </tbody></table>
+                </div>
+                <div class="stats-card reveal" style="animation-delay:0.3s">
+                    <div class="stats-card-header" style="background:var(--capital-red)">Performance</div>
+                    <table class="stats">
+                        <thead><tr><td></td><td>Cum.</td><td>CAGR</td></tr></thead>
+                        <tbody>
+                            <tr><td>YTD</td><td>2.6%</td><td>&#8212;</td></tr>
+                            <tr><td>1Y</td><td>5.1%</td><td>5.1%</td></tr>
+                            <tr><td>3Y</td><td>24.5%</td><td>7.6%</td></tr>
+                            <tr><td>5Y</td><td>36.6%</td><td>6.4%</td></tr>
+                            <tr><td>Since inception (2012)</td><td>96.7%</td><td>5.3%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>`;
+let current = 0;
+const total = 6;
+const viewer = document.getElementById('viewer');
+function show(n) {
+    current = Math.max(0, Math.min(total - 1, n));
+    viewer.srcdoc = slides[current];
+    document.getElementById('counter').textContent = (current + 1) + ' / ' + total;
+    document.getElementById('progress').style.width = ((current + 1) / total * 100) + '%';
+    const pn = document.getElementById('pageNum');
+    pn.textContent = (current + 1) + ' / ' + total;
+    pn.style.color = darkSlides.has(current) ? 'rgba(255,255,255,0.35)' : 'rgba(0,0,0,0.25)';
+}
+function go(dir) { show(current + dir); }
+document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(total - 1);
+});
+document.getElementById('navLeft').addEventListener('click', () => go(-1));
+document.getElementById('navRight').addEventListener('click', () => go(1));
+let tx = 0;
+document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 50) dx > 0 ? go(-1) : go(1);
+});
+show(0);
+</script>
+</body>
+</html>
