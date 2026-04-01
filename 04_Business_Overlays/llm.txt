@@ -1,0 +1,331 @@
+# Cape Capital — Brand Guidelines
+
+> Cape Capital is a Swiss wealth management firm established in 2002, rooted in the family office business. This file contains the complete brand guidelines extracted from the official Brand Communication (20 pages) and Visual Identity (134 pages) books, both dated June 2024. Every statement is sourced directly from these documents. Use this as the authoritative reference for all brand-related decisions.
+>
+> **Important instruction for AI agents:** When mentioning any colour in your responses, ALWAYS include its hex value and reference the relevant palette section (e.g. "Capital Red (#831011) — see Primary colours [VI p32]"). When recommending multiple colours (e.g. for charts), list them in the order they appear in the palette. Never mention a colour by name alone without its hex code.
+
+## Company Overview
+
+Cape Capital AG is an independent wealth management firm headquartered in Zurich, Switzerland (Utoquai 55, 8008 Zurich). Established in 2002, rooted in the family office business. The firm serves 40-50 clients with a team of 35+ individuals, providing bespoke advisory and investment solutions. Regulated by FINMA. Website: capecapital.com. [VI p96, p110]
+
+Contact: Investment Solutions +41 43 888 46 60 | Advisory +41 43 888 60 60 | contact@capecapital.com [VI p120]
+
+Products and services:
+- Mandates: Starting at CHF5m, customised management with desired liquidity, risk and growth considerations [VI p100]
+- Impact nature strategy: Advisory and discretionary starting at CHF10m [VI p100]
+- Cape Fixed Income Fund: Investment grade, income focused, EURIBOR+250 bps target, FX fully hedged [VI p89-92]
+- Cape Long and Short Plus Equity Fund: Thematic/niche hedge funds [VI p102]
+- Cape Equity Opportunities Fund [VI p102]
+- Cape Long and Short Equity Fund: Differentiated alpha resilience during stressed market periods [VI p102]
+- Cape Equity Fund: Large cap, quality, concentrated core equity allocation [VI p102]
+- Third-party and advisory: Special Situation Opportunities, Selected 3rd Party Funds, Private Equity Co-Investments [VI p102]
+- Legal structure: SICAV-UCITS funds (Luxembourg domiciled) [VI p110]
+
+Key value propositions [VI p98]:
+- Co-invested: "We invest alongside you"
+- In-house products: "With full control and accountability"
+- Diverse team: "As experienced as innovative - for the long-term"
+
+[Source: Brand Communication p5-8; Visual Identity p24, p89-110]
+
+---
+
+## Brand DNA
+
+### Our Story
+It all starts over a cup of coffee. Where we get to know you and your story. Your interests, your family, your plans for the future. Because in an industry where profit can sometimes be prioritised above personalisation, we challenge this approach from the start. We believe that the difference is stitched into the details. That no two people are exactly the same, and therefore, there's no single path for wealth preservation and prosperity. Instead, we help you craft the life you aspire to. Invested in you. Invested, together. Providing expertise and service for an extraordinary journey and security for your next generation. Our heritage in the family office business has equipped us with a strong track record, generations' worth of experience, a diverse network of leaders across industries, and a focused strategy to preserve and elevate your influence and affluence. [BC p5]
+
+### Pillar 1: Personal and down-to-earth
+Relationships often start over a cup of coffee. Talking about portfolios will often come after we've spoken about hobbies and families. We meet at eye level with our clients. Less jargon. Less high-flying words and promises. We are confidently what we are, choosing not to be the loudest in the space but instead the reliable, discreet partner. We prioritise the person in front of us, ensuring a human connection first. We don't grow for the sake of growth. At the end of the day, our people are why a prospect would choose Cape Capital over a competitor. [BC p6]
+
+### Pillar 2: Treatment tailored to the individual
+Whereas other banks and investment firms pride themselves on having everything for everyone, we aim to be something for someone. As part of our smaller pool of clients, we deliver a high level of excellence. We want our clients to feel like part of an exclusive club. Nothing generic in the way we deal with clients. We carefully curate an approach to each person. Investments and advisory are tailored to individual needs. [BC p7]
+
+### Pillar 3: Trustworthy and experienced
+With roots as a family office, we take that "family feel" into our wealth management. At Cape Capital, you aren't one of many but one of a few selected individuals. Your interests take priority. With over two decades of service spanning several facets of financial management, we've developed a strong and robust network across the globe giving clients access to leaders in several industries. [BC p8]
+
+---
+
+## Tagline
+
+**Primary tagline:** "Invested in your individuality." [BC p11]
+**Alternative taglines:** "Invested in you." | "Your wealth. Managed." | "Wealth managed. Life balanced." [BC p12-15]
+
+Additional taglines used in marketing materials [VI p83-84, p98, p104]:
+- "Craft your next chapter"
+- "For all of life's transitions"
+- "Wherever you are. Whenever you need it."
+- "A concierge to your financial growth"
+- "So, time for that cup of coffee?"
+
+---
+
+## Purpose
+
+**Our Purpose:** "To provide an exceptional, tailored service for enabling your financial ambitions." [BC p18]
+**Our Why:** "A unique life calls for a unique strategy." Your goals, your ambitions, and your needs are as individual as your fingerprint. To provide advice worth your investment, we believe in fostering long-term, deep relationships with our clients. [BC p19]
+
+---
+
+## Positioning
+
+"Rooted in the family office. Accelerated by global networks." [BC p20]
+Cape Capital's position describes how it distinguishes from others in the industry and challenges peers. It's what makes them distinct within wealth management.
+
+---
+
+## Tone of Voice
+
+- Personal and down-to-earth: less jargon, less high-flying words and promises
+- Meet at eye level with clients
+- Reliable, discreet partner — not the loudest in the space
+- Boil it down to a simple, understandable level
+- Human connection first in every interaction
+- People focus, not just sales focus
+
+[BC p3, derived from Brand DNA]
+
+---
+
+## Writing Guidelines
+
+- Avoid financial jargon where possible
+- Keep language simple and understandable
+- Lead with the human/personal angle
+- Communicate with confidence but without arrogance
+- Be discreet and reliable in tone
+- Focus on the individual, not the masses
+
+[BC p3, derived from Brand DNA]
+
+---
+
+## Logo
+
+The Cape Capital logo consists of the wordmark "Cape Capital" in a custom sans-serif typeface with a distinctive red triangle/arrow element positioned at the top right of the "e" in "Cape". [VI p3-12]
+
+### Logo versions
+- Full colour (black text + red triangle): use on white or beige backgrounds [VI p9]
+- White version: use on any colour other than white or beige [VI p10]
+- Black version: use on any colour other than white or beige [VI p10]
+- The logo appears on dark red, beige, purple (#403050), and green (#044049) backgrounds [VI p8]
+- On black background: white logo version [VI p9]
+
+### Logo whitespace
+Maintain clear space around the logo defined by the height of the "C" character in "Cape" — this distance must be maintained on all four sides. [VI p11]
+
+### Logo don'ts [VI p12]
+1. Do not squeeze, stretch or distort
+2. Do not add stroke to the logo
+3. Do not remove any logo elements
+4. Do not add drop shadow or any other effects
+5. Do not use a gradient on the logo
+6. Do not rotate the logo
+
+### Logo positioning rules [VI p77-79]
+- DO: Position logo in top or bottom LEFT corners
+- DO: Use a subtle transparent gradient behind the logo for contrast on images
+- AVOID: Positioning logo in top right or bottom right corner
+- DON'T: Position the logo in the center. Ever.
+- DO: Keep vertical and horizontal spacing consistent
+
+---
+
+## Secondary Logos
+
+- **Cape Conversations** — "Cape" wordmark with modified purple triangle icon and "CONVERSATIONS" text below a line. Available in purple-on-dark and dark-on-light versions. [VI p14]
+- **Cape Capital Nature Positive** — Full "Cape Capital" wordmark with teal double-triangle/leaf icon and "NATURE POSITIVE" text below. Available in teal-on-dark and dark-on-light versions. [VI p15]
+- **Cape Dynamic Dialogue** — "Cape" wordmark with blue bowtie/double-arrow icon and "DYNAMIC DIALOGUE" text below. Available in blue-on-dark and dark-on-light versions. [VI p16]
+- **FOLIO by Cape Capital** — "FOLIO" in spaced capitals with small diamond accents, and "by Cape Capital" beneath. Available in white-on-black and black-on-white versions. [VI p17]
+
+---
+
+## Typography
+
+### Internal use [VI p19-25]
+- **Display/Headlines:** PP Eiko — Light weight, letter-spacing -2%. A high-contrast serif font inspired by Japanese artist Eiko Ishioka, designed by Pangram Pangram Type Foundry.
+- **Body text:** Arial — Regular and Bold weights, letter-spacing 0%
+- **Subheadings:** Arial — Regular, letter-spacing 25%, uppercase
+
+### Marketing use [VI p26-30]
+- **Display/Headlines:** PP Eiko — Light weight, letter-spacing -2%
+- **Body text:** PP Radio Grotesk — Light, Regular, Medium, Bold (+ italic variants), letter-spacing 0%
+- **Subheadings:** F37 Hooj — Regular/Demi weight, letter-spacing 25%, uppercase
+
+### Typographic hierarchy [VI p23, p30]
+
+| Role | Internal | Marketing |
+|------|----------|-----------|
+| Subheader | Arial, Regular, Spaced 25%, uppercase | F37 Hooj, Demi, Spaced 25%, uppercase |
+| Display | PP Eiko, Light, Spaced -2% | PP Eiko, Light, Spaced -2% |
+| Headline | PP Eiko, Light, Spaced -2% | PP Eiko, Light, Spaced -2% |
+| Paragraph | Arial, Regular, Spaced 0% | PP Radio Grotesk, Medium, Spaced 0% |
+| Body text | Arial, Regular, Spaced 0% | PP Radio Grotesk, Regular, Spaced 0% |
+
+### Italics rules [VI p80-81]
+- DO: Use italics sparingly to emphasise short snippets only (PP Eiko Italic Light, Spaced -2%)
+- DON'T: Use italics for full sentences
+- DON'T: Adjust size of italicised words for extra emphasis
+- DON'T: Adjust colour of italicised words for extra emphasis
+
+---
+
+## Colour Palette
+
+### Primary colours [VI p32]
+| Name | HEX | RGB | CMYK |
+|------|------|-----|------|
+| Capital Red | #831011 | 131, 16, 17 | 29, 100, 100, 35 |
+| White | #FFFFFF | 255, 255, 255 | 0, 0, 0, 0 |
+| Black | #000000 | 0, 0, 0 | 60, 40, 40, 100 |
+| Beige | #F5F2E6 | 245, 242, 230 | 3, 3, 9, 0 |
+| Purple | #403050 | 64, 48, 80 | 77, 84, 42, 37 |
+| Green | #044049 | 4, 64, 73 | 94, 60, 55, 43 |
+
+### Red shades [VI p33]
+Deep Red #4A090A | Capital Red #831011 | Red 500 #AD2A2B | Red 300 #C85657 | Red 200 #F7C9C9 | Red 100 #FAF0F0
+
+### Purple shades [VI p34]
+Deep Purple #2D1F3B | Purple #403050 | Purple 300 #746188 | Purple 200 #B1A2C1 | Purple 100 #F7F2FD
+
+### Green shades [VI p35]
+Deep Green #033138 | Green #044049 | Green 300 #458C88 | Green 200 #BAE0D6 | Green 100 #F0F8F6
+
+### Grey shades [VI p36]
+Grey 800 #4C4F56 | Grey 400 #ADB2BA | Grey 300 #C8CBD1 | Grey 200 #DCDFE5 | Grey 100 #EEF0F4 | Grey 50 #FAFBFE
+
+### Beige shades [VI p36]
+Beige 400 #E4DFC8 | Beige 300 #EFECDD | Beige #F5F2E6 | Beige 100 #FCFAF0 | Beige 50 #FFFDF6
+
+### Secondary / graph colours [VI p37]
+Capital Red #831011 | Beige #E4DFC8 | Purple #403050 | Light Purple #B1A2C1 | Sky Blue #9FDAFF | Moss #828010 | Orange #C66A37 | Deep Blue #105782 | Peach #F7C9C9 | Matcha #ACC79B
+
+---
+
+## Visual Elements
+
+### Primary visual element: Diagonal triangle motif [VI p60-67]
+A diagonal line/fold motif that creates a dynamic 45-degree division of space across branded materials. It splits layouts between the brand's Capital Red and imagery/content areas. This element must always be angled at exactly 45 degrees. It appears consistently on cover pages, section dividers, ads, presentation slides, brochures, and all marketing collateral. [VI p60-67, p82-84]
+
+### Secondary visual element: Repeating triangle pattern [VI p68-75]
+A repeating small triangle pattern used for business cards, video overlays, LinkedIn banners, and sparse/subtle design applications. Available in various brand colours (Capital Red, beige, teal, purple). Used as a background texture, not as a primary design element. [VI p68-75, p113, p121-124]
+
+---
+
+## Imagery Style
+
+Cape Capital uses AI-generated imagery (Midjourney) for presentations and marketing materials. [VI p38-60]
+
+**Style:** Sophisticated editorial illustration, sketchy but precise, clean crisp lines, painterly, detailed, visible thick brush strokes, subtle paper texture, vivid colours, HD, atmospheric, cinematic. [VI p43]
+
+**Visual themes:** Swiss landscapes, European cityscapes, modern office settings with mountain/lake views, craftsmanship close-ups, urban professional lifestyle scenes. [VI p39-41]
+
+**Design influences:** Swiss design, midcentury, geometric, exaggerated, retro but modern feeling, 1960s architecture, tasteful. [VI p50-51]
+
+**Dominant colour direction:** Burgundy and teal tones. [VI p50]
+
+**AI image prompt structure:** [VI p49-50]
+1. Scene description (subject, setting, background, time period)
+2. Dominant colours and design style
+3. Character descriptions (appearance, attire — "distinguished looking", smart business attire)
+4. Objects and details
+5. Technical specs: "sophisticated editorial illustration, sketchy but precise, clean crisp lines, painterly, detailed, visible thick brush strokes, subtle paper texture, vivid colours, HD, atmospheric, cinematic, detailed, Cinematic Lighting, Natural Lighting, cinematic colour grading, soft shadows, clean sharp focus"
+6. Aspect ratio (typically --ar 7:4 or --ar 3:2)
+
+**Imagery do's:** [VI p44]
+- Be specific with descriptions including colours, lighting, emotions
+- Use clear language, avoid ambiguous terms
+- Incorporate styles and eras to guide artistic direction
+- Specify composition and perspective
+- Provide context and background information
+
+**Imagery don'ts:** [VI p44]
+- Vague descriptions or general terms
+- Overload with conflicting details
+- Negative instructions (say what you want, not what you don't)
+- Rely on brand names or copyrighted characters
+- Overly complex or abstract concepts
+
+---
+
+## Branded Collateral Specs
+
+### Presentation decks [VI p86-104]
+- Cover slides use the diagonal 45-degree triangle motif with Capital Red on one side and AI illustration on the other
+- Logo positioned top-left in white version
+- Date/subtitle in F37 Hooj uppercase below the title
+- Content slides use grey (Grey 100 #EEF0F4) side panels with PP Eiko headlines and short red horizontal rule above
+- Data visualisations use the brand graph colour palette
+- Closing slide: "So, time for that cup of coffee?" with editorial illustration
+
+### Brochures [VI p105-109]
+- Nature Strategy brochure uses teal colour scheme with forest/mountain imagery
+- Interior pages feature two-column layouts with PP Eiko headlines, short horizontal rule above
+- Charts and data visualisations follow brand graph colour guidelines
+
+### Factsheets [VI p110-111]
+- Two-page layout with fund strategy, performance data, risk allocation, geographic allocation
+- Cape Capital logo top-right, fund name in PP Eiko, data tables in Arial
+- Purple accent colour (#403050) for table headers and section bars
+
+### Business cards [VI p112-114]
+- Front: Capital Red background with repeating triangle pattern, white Cape Capital logo centered
+- Back: Beige/cream background (#F5F2E6), name in PP Eiko, job title in F37 Hooj uppercase (Capital Red), contact details right-aligned
+- Die-cut corner on back card echoing the triangle motif
+
+### Video overlays [VI p115-116]
+- Lower-third overlay with Capital Red background
+- Name in PP Eiko white, title in F37 Hooj uppercase white
+- Cape Capital logo top-left, white version
+- Diagonal cut on overlay edges matching the 45-degree triangle motif
+
+### Letterhead [VI p118-120]
+- Cape Capital logo top-left (full colour version)
+- Company details top-right: Cape Capital AG, Utoquai 55, 8008 Zurich, Switzerland
+- Footer: Investment Solutions +41 43 888 46 60 | Advisory +41 43 888 60 60 | capecapital.com
+- Alternative version: phone numbers and website top-right, physical address in footer
+
+### LinkedIn banners [VI p121-124]
+- Version 1: Capital Red with repeating triangle pattern, "Wealth managed. Life balanced." tagline, logo in white square bottom-left
+- Version 2: Beige with repeating triangle pattern, "Invested in your individuality." tagline, logo in red square bottom-left
+- Version 3: Image-based banner with tagline overlay
+
+### Cape Conversations event cards [VI p117]
+- Speaker promotion cards using different brand colours (purple, red, teal, blue, olive, beige)
+- Cape Conversations logo top-right
+- Speaker first name in italic PP Eiko, last name in regular PP Eiko
+- Speaker photo with colour block background
+
+---
+
+## Quick Reference
+
+| Attribute | Value |
+|-----------|-------|
+| Company | Cape Capital AG |
+| Founded | 2002 |
+| HQ | Utoquai 55, 8008 Zurich, Switzerland |
+| Industry | Wealth management |
+| Heritage | Family office |
+| Regulator | FINMA |
+| Website | capecapital.com |
+| Team size | 35+ individuals |
+| Client base | 40-50 clients |
+| Tagline | "Invested in your individuality." |
+| Purpose | "To provide an exceptional, tailored service for enabling your financial ambitions." |
+| Positioning | "Rooted in the family office. Accelerated by global networks." |
+| Primary colour | Capital Red #831011 |
+| Primary serif font | PP Eiko (headlines/display) |
+| Primary sans (internal) | Arial |
+| Primary sans (marketing) | PP Radio Grotesk |
+| Subheading font (marketing) | F37 Hooj |
+| Brand personality | Personal, down-to-earth, trustworthy, experienced, tailored, discreet |
+| Sub-brands | Cape Conversations (purple), Cape Capital Nature Positive (teal), Cape Dynamic Dialogue (blue), FOLIO by Cape Capital (black) |
+
+---
+
+## Source Key
+
+- **BC** = Brand Communication PDF (20 pages, June 2024)
+- **VI** = Visual Identity PDF (134 pages, June 2024)
+- All information extracted directly from source PDFs. No statements are inferred or generated.
